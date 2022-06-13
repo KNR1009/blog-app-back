@@ -3,17 +3,13 @@ class Api::V1::BlogsController < ApplicationController
 
   def index 
     blogs = Blog.all
-    render json: blogs
+    render json: blogs, each_serializer: BlogSerializer
   end
 
   def show
     blog = Blog.find(params[:id])
     # シリアライザーで調整する
-    render json: {
-      id: blog.id,
-      title:blog.title,
-      contents: blog.contents
-    }
+    render json: blog, Serializer: BlogSerializer
   end
 
   def create
