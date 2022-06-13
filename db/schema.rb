@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2022_06_13_131529) do
 
   create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.text "contents"
+    t.string "title", null: false
+    t.text "contents", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
